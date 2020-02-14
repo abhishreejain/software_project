@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
+import Loginscreen from './Loginscreen'
 import './App.css';
-import LoginScreen from './Loginscreen';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 class App extends Component {
   constructor(props){
     super(props);
     this.state={
       loginPage:[],
-      uploadScreen:[]
     }
   }
+  
   componentWillMount(){
     var loginPage =[];
-    loginPage.push(<LoginScreen appContext={this} key={"login-screen"}/>);
+    loginPage.push(<Loginscreen parentContext={this}/>);
     this.setState({
                   loginPage:loginPage
                     })
@@ -20,10 +21,9 @@ class App extends Component {
     return (
       <div className="App">
         {this.state.loginPage}
-        {this.state.uploadScreen}
       </div>
     );
   }
-}
-
-export default App;
+}const style = {
+  margin: 15,
+};export default App;
